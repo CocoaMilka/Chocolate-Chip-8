@@ -71,5 +71,6 @@ extern unsigned char fontset[80];
 
 // Function declarations
 void init_cpu();
+int load_rom(char* filename);
 
 #endif // CCHIP8_H

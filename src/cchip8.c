@@ -1,6 +1,11 @@
 #include "cchip8.h"
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <time.h>
+#include <errno.h>
+#include <sys/stat.h>
 
 /*
     Reference header file for architecture
@@ -48,4 +53,27 @@ void init_cpu()
     // Load font into memory 
     // Since interpreter isn't using 0x000-0x1FF, store font there
     memcpy(memory, fontset, sizeof(fontset));   
+}
+
+int load_rom(char* filename)
+{
+
+
+    return 0;
+}
+
+void display_memory()
+{
+    // Main memory
+    for (int i = 0; i < 4096; i++)
+    {
+        // Print the address and value
+        printf("0x%03X: 0x%02X\t", i, memory[i]);
+        
+        // Print a new line after every 16 addresses
+        if ((i + 1) % 16 == 0)
+        {
+            printf("\n");
+        }
+    }
 }
