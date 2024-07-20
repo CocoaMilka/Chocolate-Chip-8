@@ -70,7 +70,8 @@ extern unsigned char sound_flag;
 extern unsigned char fontset[80];
 
 // Function declarations
-void init_cpu();
+void init_cpu(void);
 int load_rom(char* filename);
+void execute_cycle(void);
 
 #endif // CCHIP8_H
