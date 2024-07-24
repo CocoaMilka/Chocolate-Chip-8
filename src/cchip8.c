@@ -74,29 +74,26 @@ int load_rom(char* filename)
 */
 void display_memory(void)
 {
+    // Clear screen
+    // bruh nvm wtf why is there no portable way of clearing on all systems
+    system("cls");  
+
     // Main memory
-    for (int i = 0; i < 4096; i++)
-    {
+    for (int i = 0; i < 4096; i++) {
         // print pointers
-        if (pc == i)
-        {
+        if (pc == i) {
             // Print the address and value
-            printf("0x%03X: 0x%02X<-PC\t", i, memory[i]);
-        }
-        else if (sp + 0xEA0 == i)  // Adjusted for stack memory offset
-        {
+            printf("0x%03X: 0x%02X<-PC  ", i, memory[i]);
+        } else if (sp + 0xEA0 == i) {  // Adjusted for stack memory offset
             // Print the address and value
-            printf("0x%03X: 0x%02X<-SP\t", i, memory[i]);
-        }
-        else
-        {
+            printf("0x%03X: 0x%02X<-SP  ", i, memory[i]);
+        } else {
             // Print the address and value
-            printf("0x%03X: 0x%02X\t", i, memory[i]);
+            printf("0x%03X: 0x%02X      ", i, memory[i]);
         }
-        
-        // Print a new line after every 16 addresses
-        if ((i + 1) % 16 == 0)
-        {
+
+        // Print a new line after every 8 addresses to keep the table view
+        if ((i + 1) % 8 == 0) {
             printf("\n");
         }
     }
